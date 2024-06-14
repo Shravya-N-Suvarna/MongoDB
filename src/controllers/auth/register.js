@@ -52,6 +52,22 @@ router.post("/", async(req,res)=>{
                 message:"email" + response.message,
             });
         }
+        const isexistingemail = await teacherModel.find({
+            is_active : constants.STATE.ACTIVE,
+            email: email,
+        });
+        // console.log(isexistingemail);
+
+        if(isexistingemail.length >0){
+            response =RESPONSE.ALREADY_EXIST;
+            
+            return res.json({
+                code: response.code,
+                message:"email" + response.message,
+            });
+
+        }
+        
         
         const isValidPhone = validator.isMobilePhone(phone) && phone.toString().length === 10;
         if(isValidPhone == false){
@@ -61,6 +77,22 @@ router.post("/", async(req,res)=>{
                 code: response.code,
                 message:"phone" + response.message,
             });
+        }
+
+        const isexistingPhone = await teacherModel.find({
+            is_active : constants.STATE.ACTIVE,
+            phone: phone,
+        });
+        // console.log(isexistingPhone);
+
+        if(isexistingPhone.length >0){
+            response =RESPONSE.ALREADY_EXIST;
+            
+            return res.json({
+                code: response.code,
+                message:"phone" + response.message,
+            });
+
         }
         
         const encryptedPassword =await bcrypt.hash(password, constants.HASH_ROUND)

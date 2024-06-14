@@ -17,5 +17,13 @@ export const RESPONSE={
         code:"202",
         message:"is invalid",
     },
+    ALREADY_EXIST:{
+        code:"203",
+        message:"already exists",
+    },
+    ACCESS_DENIED:{
+        code:"204",
+        message: "access-denied",
+    },
 
-}
+};

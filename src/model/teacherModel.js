@@ -27,7 +27,7 @@ let teacher = null;
 
 const initTeacherModel = async()=>{
     try{
-        // if(teacher) return teacher;
+        if(teacher) return teacher;
 
         teacher = mongoose.model("teachermodel",teacherModel);
         return teacher;

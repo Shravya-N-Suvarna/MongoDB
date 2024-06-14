@@ -29,7 +29,7 @@ let student = null;
 const initStudentModel = async()=>{
     try{
         
-
+        if(student) return student;
         student = mongoose.model("studentmodel",studentModel);
         return student;
     }catch(err){
