@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { Schema } from "mongoose";
 
 const studentModel={
     student_name:{
@@ -11,7 +12,7 @@ const studentModel={
     },
     image:{
         type:[String],
-        data:buffer,
+        // data:buffer,
         required: true,
     },
     teacher_id:{
@@ -26,7 +27,7 @@ const studentModel={
 
 let student = null;
 
-const initStudentModel = async()=>{
+const initstudentModel = async()=>{
     try{
         
         if(student) return student;
@@ -36,4 +37,4 @@ const initStudentModel = async()=>{
         console.log("student-model",err);
     }
 };
-export default initStudentModel;
+export default initstudentModel;

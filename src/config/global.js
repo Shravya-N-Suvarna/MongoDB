@@ -25,5 +25,9 @@ export const RESPONSE={
         code:"204",
         message: "access-denied",
     },
+    MULTER_ERR:{
+        code:"205",
+        message: "file size is exceeded",
+    },
 
 };

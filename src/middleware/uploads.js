@@ -14,7 +14,7 @@ const storage = multer.diskStorage({
 
 const maxSize = 1024 * 1024 *2 //2mb validation
 
-const fileFilter = (req,res,cb)=>{
+const fileFilter = (req,file,cb)=>{
     if(
     !file.mimetype.includes("jpeg")&&
     !file.mimetype.includes("jpg") &&
